@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <title>Expenses</title>
+</head>
+<body>
+
+    <div class="jumbotron p-3 ">
+        <a href="#default" class="logo">Finance Mangement logo</a>
+        <div class="well text-container">
+            	<section id="nav-bar">
+		<nav class="navbar navbar-expand-lg navbar-light justify-content-center" >
+			<ul class="nav justify-content-center">
+    			<li class="nav-item">
+      			<a class="nav-link" href="{{ url_for('template') }}">Home</a>
+   				 </li>
+				<li class="nav-item">
+				  <a class="nav-link" href="{{ url_for('invoice') }}">Invoice Selection</a>
+				</li>
+  			</ul>
+		</nav>
+		</section>
+        </div>
+    </div>
+        <div class="row" >
+            <div class="col md-12" >
+                <div class="jumbotron p-3">
+                    <h2 align="center"> Manage <b>Expenses</b></h2><hr>
+                    <br>
+                    <form action = "http://localhost:5000/expenses" method="POST">
+                        <table align="center">
+                            <tr>
+                                <td><label>Company Name:</label></td>
+                                <td><input type="text" name="company_name" required ></td>
+                            </tr>
+                            <tr>
+                                  <td><label>Select Expenses:</label></td>
+                                <td>
+                                   <select name="expenses" required>
+                                      <option value="select expenses">Select Expenses</option>
+                                      <option value="Inward Carriage">Inward Carriage</option>
+                                      <option value="Outward Carriage">Outward Carriage</option>
+                                      <option value="Wages">Wages</option>
+                                      <option value="Rent">Rent</option>
+                                      <option value="Advertisement">Advertisement</option>
+                                      <option value="Salary">Salary</option>
+                                      <option value="Office expenditure">Office expenditure</option>
+                                      <option value="Stationary">Stationary</option>
+                                      <option value="Taxes and Insurance">Taxes and Insurance</option>
+                                      <option value="Interest on bank loan">Interest on bank loan</option>
+                                      <option value="Octroi">Octroi</option>
+                                      <option value="Post & Telegram">Post & Telegram</option>
+                                      <option value="Bad Debts">Bad Debts</option>
+                                      <option value="P.F.Expenditure">P.F.Expenditure</option>
+                                      <option value="Depreciation">Depreciation</option>
+                                      <option value="Capital Interest">Capital Interest</option>
+                                      <option value="Drawing Interest">Drawing Interest</option>
+                                      <option value="Brokerage">Brokerage</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Expenses description:</label></td>
+                                <td><input type="text" name="expense_description" ></td>
+                            </tr>
+                            <tr>
+                                <td><label>Expenses_Amount:</label></td>
+                                <td><input type="number" name="expenses_amount" required></td>
+                            </tr>
+                            <tr>
+                                <td><label>Date:</label></td>
+                                <td><input type="date" name="date" required></td>
+                            </tr>
+                        </table>
+                        <hr>
+                        <div align="center" >
+                            <input type="submit" value="Add">
+                            <input type="reset" value="Reset">
+                        </div>
+                </form>
+                <br>
+
+                    {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                {% for message in messages %}
+                     {{message}}
+
+                    {% endfor %}
+
+                {% endif %}
+                {% endwith %}
+                    <table class="table table-hover table-dark">
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Expenses</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+
+                        </tr>
+{% for row in expense %}
+                        <tr>
+
+                            <td>{{row["id"]}}</td>
+                            <td>{{row["expenses"]}}</td>
+                            <td>{{row["expense_description"]}}</td>
+                            <td>{{row["expenses_amount"]}}</td>
+                            <td>{{row["date"]}}</td>
+
+                            <td>
+                                <a href="/delete_expenses/{{row.id}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete ?')">Delete</a>
+                            </td>
+
+                        </tr>
+
+ {% endfor %}
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+</body>
+</html>

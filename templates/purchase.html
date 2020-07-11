@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Purchase Index</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border: collapse;
+        }
+    </style>
+
+</head>
+<body>
+<div class="jumbotron p-3 ">
+    <div class="header">
+        <a href="#default" class="logo">Finance Mangement logo</a>
+    </div>
+    <div class="well text-container">
+        <section id="nav-bar">
+		<nav class="navbar navbar-expand-lg navbar-light justify-content-center" >
+			<ul class="nav justify-content-center">
+    			<li class="nav-item">
+      			<a class="nav-link" href="{{ url_for('template') }}">Home</a>
+   				 </li>
+				<li class="nav-item">
+				  <a class="nav-link" href="{{ url_for('invoice') }}">Invoice Selection</a>
+				</li>
+               
+  			</ul>
+		</nav>
+		</section>
+        <h1 align="center">Purchase Invoice </h1>
+        <p align="center">Add Purchase Transaction of your Enterprise and select operations below..</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col md-12">
+            <div class="jumbotron p-3">
+                <h2 align="center">Add Invoice Information</h2>
+                <hr>
+                 <form action = "http://localhost:5000/purchase" method="POST">
+                     <div class="row">
+                         <div class="col">
+                             <table align="right">
+                                <tr>
+                                    <td>Bill_number</td><td><input type="number" name="purchase_bill_no" min="0" required></td>
+                                </tr>
+                                 <tr>
+                                    <td>Product_type</td>
+                                    <td>
+                                        <input type="text" name="purchase_product_type" required>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>Product_Name</td><td><input type="text" name="purchase_product_name" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Description:</td><td><input type="text" name="purchase_description" required></td>
+                                </tr>
+                                 <tr>
+                                    <td>Rate</td><td><input type="number" name="purchase_rate" min="0" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Quantity</td>
+                                    <td>
+                                        <input type="text" name="purchase_quantity"required>
+                                    </td>
+                                </tr>
+
+                            </table>
+                         </div>
+                         <div class="col">
+                             <table align="left">
+                                  <tr>
+                                    <td>Unit_purchased</td><td><input type="number" name="purchased_units" min="0" required></td>
+                                </tr>
+                                 <tr>
+                                     <td>Date_of_Purchased</td><td><input type="date" name="purchased_date"></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Amount_paid</td><td><input type="number" name="purchase_amount_paid" min="0" required></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Payment_method</td>
+                                     <td>
+                                         <select name="purchase_payment_method" required>
+                                             <option value="Cash">Cash</option>
+                                             <option value="Check">Check</option>
+                                             <option value="Online_banking">Online_Banking</option>
+                                             <option value="Payment_left">Payment_left</option>
+                                         </select>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td>Purchaser_name</td><td><input type="text" name="purchaser_name"></td>
+                                 </tr>
+                                 <tr>
+                                     <td>Seller_name</td><td><input type="text" name="seller_name"></td>
+                                 </tr>
+                             </table>
+                         </div>
+                     </div>
+
+                     <hr>
+                     <div align="center">
+                         <input type="submit" value="Submit" align="center">
+                         <input type="reset" value="Reset" align="center">
+                     </div>
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col md-12">
+                <div class="jumbotron p-3">
+
+                    <h2 align="center"> Manage <b>Purchase Transactions</b></h2>
+
+                    {% with messages = get_flashed_messages() %}
+
+                {% if messages %}
+
+                {% for message in messages %}
+                     {{message}}
+
+                    {% endfor %}
+
+                {% endif %}
+                {% endwith %}
+                    <table class="table table-hover table-dark">
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Bill_no</th>
+                            <th>Product_type</th>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <th>Rate</th>
+                            <th>Quantity</th>
+                            <th>Purchased_Units</th>
+                            <th>Date</th>
+                            <th>Total_Amount</th>
+                            <th>Amount_paid</th>
+                            <th>Accounts_Payable</th>
+
+                        </tr>
+{% for row in purchase %}
+                        <tr>
+
+                            <td>{{row["id"]}}</td>
+                            <td>{{row["purchase_bill_no"]}}</td>
+                            <td>{{row["purchase_product_type"]}}</td>
+                            <td>{{row["purchase_product_name"]}}</td>
+                            <td>{{row["purchase_description"]}}</td>
+                            <td>{{row["purchase_rate"]}}</td>
+                            <td>{{row["purchase_quantity"]}}</td>
+                            <td>{{row["purchased_units"]}}</td>
+                            <td>{{row["purchased_date"]}}</td>
+                            <td>{{row["purchase_total_amount"]}}</td>
+                            <td>{{row["purchase_amount_paid"]}}</td>
+                            <td>{{row["purchase_due_amount"]}}</td>
+
+                            <td>
+                                <a href="/delete_purchase/{{row.id}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete ?')">Delete</a>
+                            </td>
+
+                        </tr>
+
+
+ {% endfor %}
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+</body>
+
+</html>

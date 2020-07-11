@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Primary Data</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+          margin: 0;
+          font-family: "Lato", sans-serif;
+        }
+        
+        .sidebar {
+          margin: 0;
+          padding: 0;
+          width: 200px;
+          background-color: #f1f1f1;
+          position: relative;
+          height: 100%;
+          overflow: auto;
+        }
+        
+        .sidebar a {
+          display: block;
+          color: black;
+          padding: 16px;
+          text-decoration: none;
+        }
+                 
+        .sidebar a:hover {
+          background-color: #555;
+          color: white;
+        }
+        
+        div.content {
+          margin-left: 200px;
+          padding: 1px 16px;
+          height: 1000px;
+        }
+        
+        @media screen and (max-width: 700px) {
+          .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+          }
+          .sidebar a {float: left;}
+          div.content {margin-left: 0;}
+        }
+        
+        @media screen and (max-width: 400px) {
+          .sidebar a {
+            text-align: center;
+            float: none;
+          }
+        }
+        </style>
+
+</head>
+<body>
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <a href="{{ url_for('home')}}" class="logo">Finance Mangement logo</a>
+        <div class="sidebar">
+                <a class="active" href="{{ url_for('template')}}">Home</a>
+                <a href="{{url_for('purchase')}}">Add Purchases</a>
+                <a href="{{url_for('sales')}}">Add Sales</a>
+                <a href="{{ url_for('expenses')}}">Add Expenses</a>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9" align="center">
+        <h4 class="text-content-center">Primary Data</h4>
+            <div class="jumbotron p-3">
+              <div class="container">
+                <h5>Purchases</h5>
+                <table class="table table-hover table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Bill_no</th>
+                        <th>Product</th>
+                        <th>Description</th>
+                        <th>Rate</th>
+                        <th>Purchased_Units</th>
+                        <th>Date</th>
+                        <th>Total_Amount</th>
+                    </tr>
+                     {% for row in purchase %}
+                    <tr>
+                        <td>{{row["id"]}}</td>
+                        <td>{{row["purchase_bill_no"]}}</td>
+                        <td>{{row["purchase_product_name"]}}</td>
+                        <td>{{row["purchase_description"]}}</td>
+                        <td>{{row["purchase_rate"]}}</td>
+                        <td>{{row["purchased_units"]}}</td>
+                        <td>{{row["purchased_date"]}}</td>
+                        <td>{{row["purchase_total_amount"]}}</td>
+                    {% endfor %}
+                    </tr>
+                </table>
+              </div>
+                
+            </div>
+            <hr>
+            <div class="jumbotron p-3">
+              <div class="container">
+                <h5>Sales</h5>
+                <table class="table table-hover table-dark">
+        
+                    <tr>
+                         <th>ID</th>
+                        <th>Bill_no</th>
+                        <th>Product</th>
+                        <th>Description</th>
+                        <th>Rate</th>
+                        <th>Sold_Units</th>
+                        <th>Date</th>
+                        <th>Total_Amount</th>
+                    </tr>
+                        {% for row in sales %}
+                        <tr>
+                            <td>{{row["id"]}}</td>
+                            <td>{{row["sales_bill_no"]}}</td>
+                            <td>{{row["sales_product_name"]}}</td>
+                            <td>{{row["sales_description"]}}</td>
+                            <td>{{row["selling_rate"]}}</td>
+                            <td>{{row["sold_units"]}}</td>
+                            <td>{{row["sold_date"]}}</td>
+                            <td>{{row["sales_total_amount"]}}</td>
+                            {% endfor %}
+                        </tr>
+                </table>
+              </div>  
+            </div>
+            <hr>
+            <div class="jumbotron p-3">
+              <div class="container">
+                <h5>Expenses</h5>
+                <table class="table table-hover table-dark">
+            
+                    <tr>
+                       <th>ID</th>
+                       <th>Expenses</th>
+                       <th>Description</th>
+                       <th>Amount</th>
+                       <th>Date</th>
+                   </tr>
+                    {% for row in expense %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.expenses}}</td>
+                        <td>{{row.expense_description}}</td>
+                        <td>{{row.expenses_amount}}</td>
+                        <td>{{row.date}}</td>
+                    </tr>
+
+                {% endfor %}
+                </table>
+              </div>
+            </div>
+          
+      </div>
+    </div>
+  </div>
+</body>
+</html>

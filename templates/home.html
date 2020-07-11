@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static',     filename='template.css') }}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>SMB Enterprise Mangement</title>
+  </head>
+  <body>
+<div class="container p-3  ">
+		<a href="{{ url_for('home')}}" class="logo">SMB Enterprise Mangement</a>
+		<section id="nav-bar">
+			<div class="container">
+				<!-- A grey horizontal navbar that becomes vertical on small screens -->
+				<nav class="navbar navbar-expand-sm bg-light">
+	
+					<!-- Links -->
+					<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/logout">Logout</a>
+					</li>
+					</ul>
+				
+				</nav>
+		</section>
+		<section class="banner">
+		  <div class="container">
+			<div class="row">
+			  <div class="col ">
+				<p class="promo-title" align="center">Your Digital Business Tracker</p>
+				<p class="join-title" align="center">Join Us! We Will Let Grown Your Business Faster</p>
+                <p align="center"><a class="btn btn-primary" href="{{ url_for('enter_validation')}}" name="button" type="button">Get Started</a></p>
+              </div>
+
+			</div>
+		  </div>
+			<!--- Background wave Hero ---->
+
+		</section>
+</div>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

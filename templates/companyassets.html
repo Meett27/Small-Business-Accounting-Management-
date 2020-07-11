@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <title>Add Information</title>
+</head>
+<body>
+<div class="jumbotron p-3">
+		<a href="#default" class="logo">Finance Mangement logo</a>
+		<section id="nav-bar">
+		<nav class="navbar navbar-expand-lg navbar-light justify-content-center" >
+			<ul class="nav justify-content-center">
+    			<li class="nav-item">
+      			    <a class="nav-link" href="">Go Back To Home</a>
+                </li>
+  			    <li class="nav-item">
+      			    <a class="nav-link" href="">Want to Skip </a>
+                </li>
+            </ul>
+		</nav>
+		</section>
+</div>
+
+   <div class="container">
+        <div class="jumbotron p-3">
+            <h2 align="center"> Enter Following Details For Making Balance Sheet Perfect </h2><hr>
+            <br>
+            <form action="" method="POST">
+                <div class="row">
+                    <div class="col">
+                        <label><b>Total Investment in Enterprise</b></label>
+                        <br>
+                        <table>
+                            <tr><td><label>Investment Amount &nbsp;<b>Rs.</b></label></td><td><input type="number" min="0" name="" required></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>From Where an investment came for Enterprise ?</b></label>
+                        <br>
+                        <table>
+                            <tr><td><label>Select Funding Types</label></td><td>
+                                <select>
+                                    <option value="Types of Funding">Types of Funding</option>
+                                    <option value="Personal Financing">Personal Financing</option>
+                                    <option value="Friends & Family">Friends & Family</option>
+                                    <option value="Angel Investor">Angel Investor</option>
+                                    <option value="Small Business Loan">Small Business Loan</option>
+                                    <option value="Micro Loans">Micro Loans</option>
+                                    <option value="Venture Capitalist">Venture Capitalist</option>
+                                    <option value="Vendor Financing">Vendor financing</option>
+                                    <option value="Purchase Order Financing">Purchase Order Financing</option>
+                                    <option value="Contest">Contest</option>
+                                    <option value="Crowd Funding">Crowd Funding</option>
+                                    <option value="Product Pre-Sale">Product Pre-Sale</option>
+                                    <option value="Alternative Lending Sources">Alternative lending Sources</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </td></tr>
+                            <tr><td><label>Amount-:</label></td><td><input type="number" name="Amount" required></td></tr>
+                            <tr><td><label>Description-:</label></td><td><input type="text" name="description" required></td></tr>
+                            <tr><td><label>Duration:</label></td>&nbsp;</tr>
+                            <tr><td><label>From&nbsp;&nbsp;</label><input type="date" name="" required></td><td><label>To:&nbsp;&nbsp;</label><input type="date" name="" required></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Land Or Building Owned by Enterprise</b></label>
+                        <p>Address is already taken in Enterprise information</p>
+                        <table>
+                            <tr><td><label>Value of land in <b>Rs.</b></label></td><td><input type="number" name="" min="0" required></td></tr>
+                            <tr><td><label>Value of Building in <b>Rs.</b></label></td><td><input type="number" name="" min="0" required></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Machinery's have in your Enterprise </b></label>
+                        <label><b>, Equipments/Vehicles uses for your Enterprise</b></label>
+                        <table>
+                            <tr><td><label>Description of Machine:</label></td><td><input type="text" name="" required></td><td><label>Value of Machine in <b>Rs.</b></label></td><td><input type="number" name="" min="0"></td></tr>
+                            <tr></tr>
+                            <tr><td><label>Equipments/Vehicles:</label></td><td><input type="text" name="" required></td><td><label>Value in <b>Rs.</b></label></td><td><input type="number" min="0" name="" required></td></tr>
+                            <tr></tr>
+                        </table>
+                        <hr>
+                        <label><b>Cash on hand And Cash Equivalents</b></label>
+                        <table>
+                            <tr><td><label>Cash in <b>Rs.</b></label></td><td><input type="number" min="0" name="" required></td></tr>
+                            <tr><td><label>Cash Equivalents</label></td><td><input type="text" name="" required></td></tr>
+                            <tr><td> <label>Value in <b>Rs.</b></label></td><td><input type="number" name="" min="0" required></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Office Supplies</b></label>
+                        <table>
+                            <tr><td><label>Supplies:-</label></td><td><input type="text" name="" required></td></tr>
+                            <tr><td> <label>Value in <b>Rs.</b></label></td><td><input type="number" name="" min="0" required></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Short-term Investment</b></label>
+                        <table>
+                            <tr><td> <label>Description:-</label>&nbsp;&nbsp;<input type="text" name="" required></td></tr>
+                            <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name="" required></td></tr>
+                            <tr><td><label>Duration:</label></td></tr>
+                            <tr><td><label>From&nbsp;&nbsp;</label><input type="date" name="" required></td><td><label>To:&nbsp;&nbsp;</label><input type="date" name="" required></td></tr>
+                        </table>
+                        <hr>
+                        <!.. liabilities..>
+                        <label><b>Short-term loans</b></label>
+                        <table>
+                             <tr><td> <label>Description:-</label>&nbsp;&nbsp;<input type="text" name="" required></td></tr>
+                             <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name="" required></td></tr>
+                             <tr><td><label>Duration:</label></td></tr>
+                             <tr><td><label>From&nbsp;&nbsp;</label><input type="date" name="" required></td><td><label>To:&nbsp;&nbsp;</label><input type="date" name="" required></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Long-term loans</b></label>
+                        <table>
+                             <tr><td> <label>Description:-</label>&nbsp;&nbsp;<input type="text" name="" required></td></tr>
+                             <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name="" required></td></tr>
+                             <tr><td><label>Duration:</label></td></tr>
+                             <tr><td><label>From&nbsp;&nbsp;</label><input type="date" name="" required></td><td><label>To:&nbsp;&nbsp;</label><input type="date" name="" required></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Income Tax Payable</b></label>
+                        <table>
+                            <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name=""></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Bills Payable</b></label>
+                        <table>
+                            <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name=""></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Bank Account Overdraft</b></label>
+                        <table>
+                            <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name=""></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Accrued-Expenses</b></label>
+                        <table>
+                            <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name=""></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Deffered Tax Liabilities</b></label>
+                        <table>
+                            <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name=""></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Mortgage Payable</b></label>
+                        <table>
+                            <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name=""></td></tr>
+                        </table>
+                        <hr>
+                        <label><b>Capital Leases</b></label>
+                        <table>
+                            <tr><td><label>Amount in <b>Rs.</b></label><input type="number" min="0" name=""></td></tr>
+                        </table>
+                        <hr>
+
+                         <input type="submit" value="Submit"> <input type="reset" value="Reset">
+
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+   </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
